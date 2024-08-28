@@ -1,7 +1,8 @@
 'use client'
-import { backgroundColorChanger, changeToCircle, changeToNormal, decreaseMargin, moveMarginToLeft } from '@/redux/reducerSlice/boxslice'
+import { backgroundColorChanger, changeToCircle, changeToNormal, decreaseMargin, moveMarginToLeft, moveRight } from '@/redux/reducerSlice/boxslice'
 import { Button, Input } from '@nextui-org/react';
 import React from 'react'
+import { FaArrowDown, FaArrowLeft, FaArrowRight, FaArrowUp } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux'
 
 const Box = () => {
@@ -18,11 +19,15 @@ const Box = () => {
         <div style={{backgroundColor: backgroundColor,margin: margin,width: width,height: height,borderRadius:borderRadius}}>
 
         </div>
-        <div><Input type='text' placeholder='backgroundCOlor: ' onKeyPress={handleChange} className='w-[20%] p-4 m-4' /></div>
+        <div><Input type='text' placeholder='backgroundCOlor: ' onChange={handleChange} className='w-[20%] p-4 m-4' /></div>
         <div>
         <button onClick={()=> borderRadius===0?dispatch(changeToCircle()):dispatch(changeToNormal())} className='bg-slate-400 w-[15%] p-4 m-4'>Change to {borderRadius===0?'Circle':'Square'} </button>
         <button onClick={()=> dispatch(moveMarginToLeft())} className='w-[15%] p-4 m-4 bg-slate-400'> Margin +</button>
         <button onClick={()=> dispatch(decreaseMargin())} className='w-[15%] p-4 m-4 bg-slate-400'> Margin -</button>
+        <Button><FaArrowLeft/></Button>
+        <Button onClick={()=> dispatch(moveRight())}><FaArrowRight/></Button>
+        <Button><FaArrowUp/></Button>
+        <Button><FaArrowDown/></Button>
 
           
         {/* <button onClick={()=> dispatch(increaseWidth())}>-</button> */}

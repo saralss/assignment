@@ -28,7 +28,9 @@ export const boxSlice = createSlice({
     },
     backgroundColorChanger:(state, action)=>{
       state.backgroundColor=action.payload;
-
+    },
+    moveRight:(state, action)=>{
+      state.marginLeft = state.marginLeft+20
     }
     // incrementByAmount: (state, action) => {
     //   state.value += action.payload
@@ -37,6 +39,6 @@ export const boxSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { changeToCircle, moveMarginToLeft ,changeToNormal,backgroundColorChanger,decreaseMargin} = boxSlice.actions
+export const { changeToCircle, moveMarginToLeft ,changeToNormal,backgroundColorChanger,decreaseMargin,moveRight} = boxSlice.actions
 
 export default boxSlice.reducer
