@@ -9,7 +9,11 @@ export const boxSlice = createSlice({
     margin:20,
     padding:20,
     borderRadius:0,
-    backgroundColor:'orange'
+    backgroundColor:'orange',
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 30,
+    marginBottom: 30,
   },
   reducers: {
     changeToCircle: (state, action) => {
@@ -28,10 +32,21 @@ export const boxSlice = createSlice({
     },
     backgroundColorChanger:(state, action)=>{
       state.backgroundColor=action.payload;
+
     },
-    moveRight:(state, action)=>{
-      state.marginLeft = state.marginLeft+20
-    }
+    moveRight:(state,action)=>{
+      state.marginLeft +=20;
+    },
+    moveLeft:(state,action)=>{
+      state.marginLeft = state.marginLeft-20;
+    },
+    moveUp:(state,action)=>{
+      state.marginTop +=20;
+    },
+    moveDown:(state,action)=>{
+      state.marginTop -=20;
+    },
+
     // incrementByAmount: (state, action) => {
     //   state.value += action.payload
     // },
@@ -39,6 +54,6 @@ export const boxSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { changeToCircle, moveMarginToLeft ,changeToNormal,backgroundColorChanger,decreaseMargin,moveRight} = boxSlice.actions
+export const { changeToCircle, moveMarginToLeft ,changeToNormal,backgroundColorChanger,decreaseMargin,moveDown,moveLeft,moveRight,moveUp} = boxSlice.actions
 
 export default boxSlice.reducer
